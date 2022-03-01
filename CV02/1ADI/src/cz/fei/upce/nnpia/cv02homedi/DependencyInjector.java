@@ -1,28 +1,41 @@
 package cz.fei.upce.nnpia.cv02homedi;
 
 public class DependencyInjector {
-    private static ServiceA serviceA;
-    private static ServiceB serviceB;
-    private static ServiceC serviceC;
+    //navhovy vzor singleton
+    private static DatabaseService databaseService;
+    private static GoogleServices googleServices;
+    private static WeatherService weatherService;
+    private static Logger logger;
 
-    private static ServiceA getServiceA(){
-        if(serviceA == null){
-            serviceA = new ServiceA();
+    private static Logger getLogger(){
+        if(logger == null){
+            return logger = new Logger();
         }
-        return serviceA;
+        return logger;
     }
 
-    private static ServiceB getServiceB(){
-        if(serviceB == null){
-            serviceB = new ServiceB();
+    private static DatabaseService getUserService(){
+        if(databaseService == null){
+            return databaseService = new DatabaseService(getLogger()); //lazy object creation
         }
-        return serviceB;
+        return databaseService;
     }
 
-    private static ServiceC getServiceC(){
-        if(serviceC == null){
-            serviceC = new ServiceC();
+    private static GoogleServices getGoogleServices(){
+        if(googleServices == null){
+            return  googleServices = new GoogleServices(getLogger()); //lazy object creation
         }
-        return serviceC;
+        return googleServices;
+    }
+
+    private static WeatherService getWeatherService(){
+        if(weatherService == null){
+            return weatherService = new WeatherService(getLogger());
+        }
+        return weatherService;
+    }
+
+    public static IWebApplication getWebApplication() {
+        return new WebApplication(getUserService(), getGoogleServices(), getWeatherService());
     }
 }
