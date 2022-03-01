@@ -1,23 +1,23 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="Servlet:war exploded">
-    <output-path>$PROJECT_DIR$/Servlet/target/Servlet-1.0-SNAPSHOT</output-path>
+  <artifact type="exploded-war" name="ServletNNPIA:war exploded">
+    <output-path>$PROJECT_DIR$/target/ServletNNPIA-1.0-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>Servlet</module>
+        <module>ServletNNPIA</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Servlet" />
+          <element id="module-output" name="ServletNNPIA" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/Servlet/target/Servlet-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/ServletNNPIA-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Servlet/web/Web" />
+      <element id="javaee-facet-resources" facet="ServletNNPIA/web/Web" />
     </root>
   </artifact>
 </component>
