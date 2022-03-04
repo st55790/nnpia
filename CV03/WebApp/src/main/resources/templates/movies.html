@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Movies</h1>
+<table>
+    <thead>
+    <tr>
+        <th scope="col"></th>
+        <th scope="col">Movie name</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="movie: ${movies}">
+            <td th:text="${movie.getMovieId()}"></td>
+            <td th:text="${movie.getName()}"></td>
+        </tr>
+    </tbody>
+</table>
+<a th:href="@{/}">Add Movie</a>
+</body>
+</html>
