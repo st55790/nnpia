@@ -1,11 +1,14 @@
 package cs.upce.fei.nnpia.cv03.spring03.services;
 
 import cs.upce.fei.nnpia.cv03.spring03.entities.Movie;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 @Service
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class MovieServiceImpl implements MovieService {
 
     private ArrayList<Movie> movies;
