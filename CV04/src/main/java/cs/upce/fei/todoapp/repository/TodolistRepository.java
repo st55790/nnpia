@@ -10,4 +10,7 @@ public interface TodolistRepository extends JpaRepository<Todolist, Long> {
 
     @Query("select t from Todolist t where t.name like %:str%")
     List<Todolist> findByNameIsContaining(String str);
+
+    @Query("select t from Todolist t where t.userToDoList.id = :id")
+    List<Todolist> findAllByUserToDoList(Long id);
 }

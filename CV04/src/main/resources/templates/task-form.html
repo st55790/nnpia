@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link th:href="@{/login.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<h2>Add task</h2>
+<section>
+    <form action="#" th:action="@{/task-form-process}" th:object="${task}" method="post">
+        <input type="hidden" th:field="*{id}" /><br>
+        <label>Task name:</label>
+        <input type="text" th:field="*{name}" /><br>
+        <label>Description:</label>
+        <input type="text" th:field="*{description}" /><br>
+        <label>State:</label><br>
+        <select th:field="*{state}">
+            <option value="URGENT">URGENT</option>
+            <option value="IMPORTANT">IMPORTANT</option>
+            <option value="FOR_LATER">FOR_LATER</option>
+            <option value="FEW_MINUTES">FEW_MINUTES</option>
+            <option value="UPCOMING">UPCOMING</option>
+            <option value="DONE">DONE</option>
+        </select><br>
+        <label>End time:</label><br>
+        <input type="text" th:field="*{endTime}"/><br><br>
+        <input type="submit"/>
+
+    </form>
+    <br><a th:href="@{/tasks}">ALL TASKS</a>
+</section>
+</body>
+</html>

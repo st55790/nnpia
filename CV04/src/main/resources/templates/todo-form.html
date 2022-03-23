@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link th:href="@{/login.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<h2>Add todo list</h2>
+<section>
+    <form action="#" th:action="@{/todo-form-process}" th:object="${todolist}" method="post">
+        <input type="hidden" th:field="*{id}" /><br>
+        <label>ToDoList name:</label>
+        <input type="text" th:field="*{name}" /><br>
+        <label>ToDoList Description:</label>
+        <input type="text" th:field="*{description}" /><br><br>
+        <input type="submit"/>
+    </form>
+    <br><a th:href="@{/to-do-lists}">ALL TASKS</a>
+</section>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link th:href="@{/login.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<h2>LOGIN PAGE TO TODO LIST</h2>
+<section>
+    <form action="#" th:action="@{/user-register-process}" th:object="${user}" method="post">
+        <label>Username:</label>
+        <input type="text" th:field="*{username}" /><br>
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" /><br>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}" /><br><br>
+        <input type="submit"/><br>
+    </form>
+    <br><a th:href="@{/login}">LOGIN</a>
+</section>
+</body>
+</html>

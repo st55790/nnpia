@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link th:href="@{/login.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<h2>TO DO LISTS</h2>
+<section>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>TASKS</th>
+            <th>EDIT</th>
+            <th>REMOVE</th>
+        </tr>
+        <tr th:each="todo : ${lists}">
+            <td th:text="${todo.name}"></td>
+            <td th:text="${todo.description}"></td>
+            <td><a th:href="@{'/tasks/'+${todo.id}}">TASKs</a></td>
+            <td><a th:href="@{'/todo-form/'+${todo.id}}">EDIT</a></td>
+            <td><a th:href="@{'/remove-todo/'+${todo.id}}">REMOVE</a></td>
+        </tr>
+    </table>
+
+    <br><a th:href="@{/todo-form}">ADD TODO List</a>
+</section>
+</body>
+</html>

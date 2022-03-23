@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
-    @Query("select t from Task t where t.state = :state and t.todolist = :id")
-    List<Task> getTasksByStateAndUserId(StateEnum state, Integer id);
+    @Query("select t from Task t where t.todolist.id = :id")
+    List<Task> findAllByIdTodo(Long id);
+
+    //@Query("select t from Task t where t.state = :state and t.todolist = :id")
+    //List<Task> getTasksByStateAndUserId(StateEnum state, Integer id);
 }

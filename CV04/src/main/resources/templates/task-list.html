@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<body>
+<div th:replace="fragments/navigation :: navbar"></div>
+<h2>All tasks</h2>
+<section>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>State</th>
+            <th>Description</th>
+            <th>End time</th>
+            <th>EDIT</th>
+            <th>REMOVE</th>
+        </tr>
+        <tr th:each="task : ${taskList}">
+            <td th:text="${task.name}"></td>
+            <td th:text="${task.state}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.endTime}"></td>
+            <td><a th:href="@{'/task-form/'+${task.id}}">EDIT</a></td>
+            <td><a th:href="@{'/remove-task/'+${task.id}}">REMOVE</a></td>
+        </tr>
+    </table>
+
+    <br><a th:href="@{/task-form}">ADD TASK</a>
+</section>
+</body>
+</html>

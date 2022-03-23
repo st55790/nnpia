@@ -21,10 +21,10 @@ class TaskRepositoryTests {
     @Autowired
     private TaskRepository taskRepository;
 
-    @Test
-    void getTasksByStateAndIdTodolist() {
-        List<Task> list = taskRepository.getTasksByStateAndUserId(StateEnum.IMPORTANT, 2);
-        Assertions.assertThat(list.size()).isEqualTo(2);
-    }
+    //@Test
+    //void getTasksByStateAndIdTodolist() {
+    //    List<Task> list = taskRepository.getTasksByStateAndUserId(StateEnum.IMPORTANT, 2);
+    //    Assertions.assertThat(list.size()).isEqualTo(2);
+    // }
 
 }

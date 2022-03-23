@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    display: inline-block;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+form{
+    display: inline-block;
+}
+
+h2{
+    margin: 5px;
+}
+
+input, select {
+    width: 80%;
+    margin: 5px;
+}
+
+nav{
+    position: fixed;
+    background-color: yellowgreen;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    height: 30px;
+}
+
+a{
+    text-decoration: none;
+    background-color: yellowgreen;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 5px;
+}
