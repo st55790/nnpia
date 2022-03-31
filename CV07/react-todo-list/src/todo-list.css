@@ -1,0 +1,74 @@
+body{
+    background-color: #313C53;
+    color: #E2F1FF;
+    margin: 0;
+    text-align: center;
+}
+
+h2{
+    margin: 10px;
+}
+
+.task{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    border: 1px solid #D8A31A;
+    border-radius: 20px;
+}
+
+.buttonDone{
+    background-color: #D8A31A;
+    border: none;
+    height: 30px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.buttonDone:hover{
+    background-color: #785600;
+    color: #E2F1FF;
+}
+.description{
+    margin: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 40px auto 80px auto;
+
+}
+
+input{
+    display: block;
+    height: 40px;
+    font-size: 20px;
+}
+
+#taskName{
+    width: 40%;
+    margin: auto;
+}
+
+label{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+#inputDesc{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 80px;
+}
+
+#inputSubmit{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+button{
+    width: 100%;
+}
