@@ -26,7 +26,7 @@ function App() {
                 if (response.ok) {
                     return response.json()
                 }
-                throw new Error('Unable to get data: ${response.statusText}')
+                throw new Error(`Unable to get data: ${response.statusText}`)
             })
             .then(json => setData(json.content))
             .catch((err) => setError(err.message))
