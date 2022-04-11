@@ -7,6 +7,9 @@ import "./todo-list.css";
 function App() {
 
     const [data, setData] = useState([]);
+    const [error, setError] = useState();
+    const [page, setPage] = useState(0);
+
 
 
     const onNewTaskHandler = (task) => {
@@ -18,26 +21,37 @@ function App() {
 
     useEffect(() => {
         console.log("Start app")
-        fetch('https://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then(json => {
-                const sortList = json.filter(item => item.userId === 1);
-                setData(sortList);
+        fetch(`${process.env.REACT_APP_TARGET_TODO_DOMAIN}/api/todos?page=${page}`)
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                }
+                throw new Error('Unable to get data: ${response.statusText}')
             })
-    }, [])
+            .then(json => setData(json.content))
+            .catch((err) => setError(err.message))
+    }, [page])
 
     const onRemoveTaskHandler = function (task) {
-        const newArray = [...data]
-        const result = newArray.filter(t => t.id !== task.id);
-        setData(result);
+        fetch(`${process.env.REACT_APP_TARGET_TODO_DOMAIN}/api/todos/${task.id}`,{
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        }).then(() => json => setData(json.content))
     }
 
-    const listItems = data.filter(t => t.completed === false).map(t => <Task key={t.id} task={t} onClickHandler={onRemoveTaskHandler}/>);
+    const listItems = data.map(t => <Task key={t.id} task={t} onClickHandler={onRemoveTaskHandler}/>);
 
     return (
         <div className="App">
-                <TaskForm onNewTask={onNewTaskHandler}/>
+            <TaskForm onNewTask={onNewTaskHandler}/>
             <div>{listItems.reverse()}</div>
+            <div className={"pageButtons"}>
+                <button onClick={() => setPage(p => p - 1)}>Prev</button>
+                <button>Actual page: {page}</button>
+                <button onClick={() => setPage(p => p + 1)}>Next</button>
+            </div>
         </div>
     );
 }

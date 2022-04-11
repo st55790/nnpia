@@ -3,7 +3,6 @@ import {useState} from "react";
 function TaskForm(props){
 
     const [taskDesc, setTaskDesc] = useState("")
-    const [taskCompleted, setTaskCompleted] = useState(false);
     const [count, setCount] = useState(201);
 
     const onSubmitHandler = event => {
@@ -13,12 +12,11 @@ function TaskForm(props){
 
         const newTask = {
             id: count,
-            title: taskDesc,
-            completed: taskCompleted
+            description: taskDesc,
+            priority: Math.floor(Math.random() * (6 - 1) + 1)
         }
 
-
-        fetch('https://jsonplaceholder.typicode.com/todos', {
+        fetch(`${process.env.REACT_APP_TARGET_TODO_DOMAIN}/api/todos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

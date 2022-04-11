@@ -72,3 +72,10 @@ label{
 button{
     width: 100%;
 }
+
+.pageButtons{
+    width: 20%;
+    margin: auto;
+    display: flex;
+    min-width: 150px;
+}
