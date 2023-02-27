@@ -1,4 +1,4 @@
-package cz.upce.fei.cv01.entity;
+package cz.upce.fei.cv01.domain;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package cz.upce.fei.cv01.controller;
 
-import cz.upce.fei.cv01.entity.Student;
+import cz.upce.fei.cv01.domain.Student;
 import org.springframework.web.bind.annotation.*;
 
 // RestController vs Controller
