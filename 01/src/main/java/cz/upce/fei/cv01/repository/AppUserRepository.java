@@ -7,6 +7,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface AppUserRepository extends PagingAndSortingRepository<AppUser, Long> {
@@ -14,4 +15,10 @@ public interface AppUserRepository extends PagingAndSortingRepository<AppUser, L
 
     @Query("SELECT appUser FROM AppUser appUser inner join appUser.roles role where role = :role")
     List<AppUser> findAppUserByRolesEquals(Role role);
+
+    Optional<AppUser> findById(Long id);
+
+    void deleteAppUserById(Long id);
+
+    AppUser findAppUserByUsername(String username);
 }

@@ -20,3 +20,9 @@ spring:
       platform: postgres
   liquibase:
     change-log: classpath:db/changelog/changelog-master.yaml
+
+security:
+  jwt:
+    token:
+      secret-key: 'secretkey'
+      uri: '/authenticate'

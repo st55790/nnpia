@@ -1,5 +1,6 @@
 package cz.upce.fei.cv01.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -26,7 +27,8 @@ public class Task {
     @Column
     private LocalDateTime updateDate;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")
     private AppUser author;
 }
