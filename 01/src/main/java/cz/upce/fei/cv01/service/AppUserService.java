@@ -1,11 +1,11 @@
 package cz.upce.fei.cv01.service;
 
 import cz.upce.fei.cv01.domain.AppUser;
-import cz.upce.fei.cv01.dto.AppUserDto;
 import cz.upce.fei.cv01.dto.AppUserResponseEntityDto;
-import cz.upce.fei.cv01.repository.AppUserRepository;
 import cz.upce.fei.cv01.errors.ResourceNotFoundException;
+import cz.upce.fei.cv01.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

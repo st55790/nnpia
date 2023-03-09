@@ -19,14 +19,12 @@ import java.util.List;
 @AllArgsConstructor
 public class AppUserController {
 
-
     private final AppUserService appUserService;
 
     @GetMapping("")
     public List<AppUser> findAll(){
         return appUserService.findAppUserByActiveEquals(true);
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity getInfoAboutAppUser(@PathVariable Long id) throws ResourceNotFoundException {
@@ -35,7 +33,7 @@ public class AppUserController {
         return ResponseEntity.ok(toDto(result));
     }
 
-    @PostMapping("/") // Zaklada mi to usera s ID 1
+    @PostMapping("/")
     public ResponseEntity createAppUser(@RequestBody @Validated AppUserCreateDto dto){
         var result = appUserService.create(toEntity(dto));
         return ResponseEntity

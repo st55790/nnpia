@@ -20,9 +20,14 @@ spring:
       platform: postgres
   liquibase:
     change-log: classpath:db/changelog/changelog-master.yaml
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+    path: /graphql
 
 security:
   jwt:
     token:
-      secret-key: 'secretkey'
-      uri: '/authenticate'
+      secret-key: 'a1b2c3d4e5'
+      jwtExpirationMs: 86400000

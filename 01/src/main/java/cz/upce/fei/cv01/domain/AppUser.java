@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-public class AppUser implements UserDetails {
+public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,28 +63,14 @@ public class AppUser implements UserDetails {
         this.updateDate = updateDate;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+    public AppUserDto toDto(){
+        return new AppUserDto(
+                getId(),
+                getUsername(),
+                getPassword(),
+                getActive(),
+                getCreationDate(),
+                getUpdateDate()
+        );
     }
 }

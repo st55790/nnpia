@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 * JSON - Klíč a hodnota, používají se závorky
 * XML - obsahuje tagy, zdlouhavé*/
 @RestController
-//@RequestMapping("api/v1")
+@RequestMapping("/user")
 public class HelloController {
 
     @GetMapping("")
